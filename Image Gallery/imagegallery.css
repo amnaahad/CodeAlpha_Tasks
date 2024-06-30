@@ -1,0 +1,151 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+html {
+  /* Storing Colors In Variables */
+  --body-clr: #918c8d; /* Light tea pink color */
+  --primary-clr: #05555c;
+  --primary-light-clr: #eaf3fa;
+  --links-clr: #186f78;
+  --text-clr: #3f7277;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #918c8d; /* Ensuring the body uses the new color */
+}
+
+.portfolio {
+  width: 100%;
+  padding: 30px 8%;
+  background-color: #918c8d; /* Ensuring the section uses the new color */
+}
+
+.portfolio .section-head {
+  max-width: 700px;
+  margin: 0px auto 25px;
+  text-align: center;
+}
+.section-head h1 {
+  position: relative;
+  font-size: 32px;
+  margin: 10px 0px 30px;
+  color: var(--primary-clr);
+  font-family: 'Lobster', cursive; /* Apply the new font */
+}
+.button-group {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.button-group .button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: #c8d1d8;
+  color: var(--primary-clr);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.4s;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+}
+
+.button-group .button.active {
+  background-color: var(--primary-clr);
+  color: var(--body-clr);
+}
+
+.button-group .button:hover {
+  background-color: var(--primary-clr);
+  color: var(--body-clr);
+}
+
+/* Gallery Styles */
+div.gallery {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item {
+  position: relative;
+  margin: 4px;
+  width: calc(33.33% - 8px);
+  overflow: hidden;
+  cursor: pointer;
+  /* Ensure enough height for the image to fit */
+  height: 340px; /* Adjust according to your design */
+}
+
+.item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure images maintain aspect ratio and cover container */
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+/* Adjust image scale on hover */
+.item:hover img {
+  transform: scale(1.1); /* Example: Scale image slightly on hover */
+}
+
+.item .overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(5, 85, 92, 0.7);
+  color: var(--body-clr);
+  padding: 15px;
+  overflow: hidden;
+  transition: opacity 0.2s ease-in-out;
+  opacity: 0;
+}
+
+.item:hover .overlay {
+  opacity: 1;
+}
+
+.item .overlay a {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 2px solid var(--body-clr);
+  color: var(--body-clr);
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.item .overlay a:hover {
+  background-color: var(--body-clr);
+  color: var(--primary-clr);
+}
+
+@media (max-width: 1024px) {
+  div.gallery .item {
+    width: calc(50% - 8px);
+  }
+}
+
+@media (max-width: 600px) {
+  div.gallery .item {
+    width: 100%;
+    margin: 4px 0px;
+  }
+}
